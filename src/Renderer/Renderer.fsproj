@@ -1,0 +1,108 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <RuntimeIdentifiers>win-x64;linux-x64</RuntimeIdentifiers>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DefineConstants>TRACE</DefineConstants>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <DefineConstants>TRACE</DefineConstants>
+  </PropertyGroup>
+  <ItemGroup>
+    <!-- Common definitions -->
+    <Compile Include="Common\EEExtensions.fs" />
+    <Compile Include="Common\Optics.fs" />
+    <Compile Include="Common\ElectronAPI.fs" />
+    <Compile Include="Common\HashMap.fs" />
+    <Compile Include="Common\CommonTypes.fs" />
+    <Compile Include="Common\DrawHelpers.fs" />
+    <Compile Include="Common\Helpers.fs" />
+    <Compile Include="Common\TimeHelpers.fs" />
+    <Compile Include="Common\WidthInferer.fs" />
+
+	  <!-- UART -->
+    <Compile Include="UartFiles\BuildUartHelpers.fs" />
+
+	  <!-- simulator -->
+    <Compile Include="Simulator\SimulatorTypes.fs" />
+    <Compile Include="Simulator\TruthTableTypes.fs" />
+    <Compile Include="Simulator\NumberHelpers.fs" />
+    <Compile Include="Simulator\SynchronousUtils.fs" />
+    <Compile Include="Simulator\Extractor.fs" />
+    <Compile Include="Simulator\CanvasStateAnalyser.fs" />
+    <Compile Include="Simulator\SimulationGraphAnalyser.fs" />
+    <Compile Include="Simulator\Fast\FastCreate.fs" />
+    <Compile Include="Simulator\Fast\FastReduce.fs" />
+    <Compile Include="Simulator\Fast\FastRun.fs" />
+    <Compile Include="Simulator\Builder.fs" />
+    <Compile Include="Simulator\Verilog.fs" />
+    <Compile Include="Simulator\Runner.fs" />
+    <Compile Include="Simulator\DependencyMerger.fs" />
+    <Compile Include="Simulator\Simulator.fs" />
+
+    <!-- Verilog Component -->
+    <Compile Include="VerilogComponent\VerilogTypes.fs" />
+    <Compile Include="VerilogComponent\SheetCreator.fs" />    
+    <Compile Include="VerilogComponent\NearleyBindings.fs" />
+    <Compile Include="VerilogComponent\ErrorCheck.fs" />
+    <Compile Include="VerilogComponent\CodeEditorHelpers.fs" />   
+
+    <!-- JS and File interface -->
+    <Compile Include="Interface\Version.fs" />
+    <Compile Include="Interface\JSHelpers.fs" />
+    <Compile Include="Interface\FilesIO.fs" />
+    <None Include="scss\main.scss" />
+    <Compile Include="DrawBlock\DrawModelType.fs" />
+    <Compile Include="DrawBlock\PopupDrawingView.fs" />
+    <!-- Draw2D diagram -->
+    <Compile Include="DrawBlock\Symbol.fs" />
+	<Compile Include="DrawBlock\SymbolView.fs" />
+	<Compile Include="DrawBlock\SymbolUpdatePortHelpers.fs" />
+	<Compile Include="DrawBlock\SymbolReplaceHelpers.fs" />
+    <Compile Include="DrawBlock\SymbolUpdate.fs" />
+    <Compile Include="DrawBlock\BusWire.fs" />
+	<Compile Include="DrawBlock\BusWireUpdateHelpers.fs" />
+	<Compile Include="DrawBlock\SmartHelpers.fs" />
+	<Compile Include="DrawBlock\SmartWire.fs" />
+	<Compile Include="DrawBlock\SmartChannel.fs" />
+	<Compile Include="DrawBlock\SmartPortOrder.fs" />
+	<Compile Include="DrawBlock\SmartSizeSymbol.fs" />
+	<Compile Include="DrawBlock\SmartRotate.fs" />
+    <Compile Include="DrawBlock\BusWireUpdate.fs" />
+    <Compile Include="DrawBlock\Sheet.fs" />
+    <Compile Include="DrawBlock\SheetSnap.fs" />
+    <Compile Include="DrawBlock\SheetDisplay.fs" />
+	<Compile Include="DrawBlock\SheetUpdateHelpers.fs" />
+    <Compile Include="DrawBlock\SheetUpdate.fs" />
+    <!-- UI -->
+    <Compile Include="UI/ModelType.fs" />
+    <Compile Include="UI\ModelHelpers.fs" />
+    <Compile Include="UI/Style.fs" />
+    <Compile Include="UI\Notifications.fs" />
+    <Compile Include="UI\PopupView.fs" />
+    <Compile Include="UI/MemoryEditorView.fs" />
+    <Compile Include="UI/FileMenuView.fs" />
+    <Compile Include="UI\CustomCompPorts.fs" />
+    <Compile Include="UI/SimulationView.fs" />
+    <Compile Include="UI\TruthTable\TruthTableReduce.fs" />
+    <Compile Include="UI\TruthTable\TruthTableCreate.fs" />
+    <Compile Include="UI\TruthTable\ConstraintReduceView.fs" />
+    <Compile Include="UI\TruthTable\TruthTableView.fs" />
+    <Compile Include="UI/BuildView.fs" />
+    <Compile Include="UI/CatalogueView.fs" />
+    <Compile Include="UI/SelectedComponentView.fs" />
+    <!-- <Compile Include="UI/WaveSim/WaveformSimulationView.fs" /> -->
+    <Compile Include="UI/WaveSim/WaveSimHelpers.fs" />
+    <Compile Include="UI/WaveSim/WaveSimStyle.fs" />
+    <Compile Include="UI\WaveSim\WaveSimSelect.fs" />
+    <Compile Include="UI/WaveSim/WaveSim.fs" />
+    <Compile Include="UI\MainView.fs" />
+    <Compile Include="UI\UpdateHelpers.fs" />
+    <Compile Include="UI\Update.fs" />
+    <Compile Include="Renderer.fs" />
+  </ItemGroup>
+  
+  <!-- Dependencies -->
+  <Import Project="..\..\.paket\Paket.Restore.targets" />
+</Project>
